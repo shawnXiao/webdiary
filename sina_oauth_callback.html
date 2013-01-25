@@ -1,0 +1,4 @@
+<script>
+    var isDouban = document.referrer.indexOf("douban") != -1;
+    location.href = "chrome-extension://lhgpligmpoknefnejibdjijijffhfdia/sina_oauth_callback.html" + location.search + (isDouban ? "&douban" : "");
+</script>

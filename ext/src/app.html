@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <script src="assets/underscore.js"></script>
+        <script src="assets/jquery.js"></script>
+        <script src="assets/d3.min.js"></script>
+        <script src="assets/d3.layout.min.js"></script>
+        <script src="log.js"></script>
+        <script src="weibo.js"></script>
+        <script src="douban.js"></script>
+        <script src="history.js"></script>
+        <script src="drawTree.js"></script>
+        <script src="app.js"></script>
+        <link rel="stylesheet" href="css/tree.css" type="text/css" />
+        <link rel="stylesheet" href="css/turn.css" type="text/css" />
+    </head>
+    <body>
+        <header>
+            <h1>Diary by Bazinga</h1>
+            <a href="#1" class="weibo-btn">绑定微博</a>
+            <a href="#2" class="douban-btn">绑定豆瓣</a>
+        </header>
+        <article class="clearfix">
+            <div class="contain">
+
+                <ul id="right-nav">
+                    <li class="active">
+                        <a href="#1"><span>2013年</span>1月</a>
+                    </li>
+                    <li>
+                        <a href="#1"><span>2012年</span>12月</a>
+                    </li>
+                    <li>
+                        <a href="#1"><span>2012年</span>11月</a>
+                    </li>
+                    <li>
+                        <a href="#1"><span>2012年</span>10月</a>
+                    </li>
+                    <li>
+                        <a href="#1"><span>2012年</span>9月</a>
+                    </li>
+                    <li>
+                        <a href="#1"><span>2012年</span>8月</a>
+                    </li>
+                    <li>
+                        <a href="#1"><span>2012年</span>7月</a>
+                    </li>
+                    <li>
+                        <a href="#1"><span>2012年</span>6月</a>
+                    </li>
+                    <li>
+                        <a href="#1"><span>2012年</span>5月</a>
+                    </li>
+                    <li>
+                        <a href="#1"><span>2012年</span>4月</a>
+                    </li>
+                    <li>
+                        <a href="#1"><span>2012年</span>3月</a>
+                    </li>
+                </ul>
+
+                <div class="prev-page">
+                    <span class="top"></span>
+                    <span class="bg"></span>
+                    <span class="btm"></span>
+                </div>
+                <div class="book">
+                    <div id="book">
+                        <div id="page-first-day" class="page container-nodata"><!--如果没记录，想在这儿加个样式，好实现吗-->
+                            <div class="container">
+                                <span class="nodata">
+                                    <span>亲~本日暂无浏览记录。。。<a href="#2" class="next-page">下一页</a></span>
+                                </span>
+                            </div>
+                            <span class="pageNum"><b>First-day</b></span>
+                        </div>
+                    </div>
+                    <span class="top"></span>
+                    <span class="btm"></span>
+                    <span class="s-top"></span>
+                    <span class="s-bg"></span>
+                    <span class="s-btm"></span>
+                </div>
+            </div>
+        </article>
+        <footer>
+        <label for="page-number">按日期选择：</label>
+        <select name="year" id="year">
+            <option value="2013" selected="selected">2013</option>
+            <option value="2012">2012</option>
+            <option value="2011">2011</option>
+            <option value="2010">2010</option>
+        </select>年
+        <select name="month" id="month">
+            <option value="1" selected="selected">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>月
+        <select name="day" id="day">
+            <option value="1" selected="selected">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+        </select>日
+        <span class="confirm-date -confirm-date">确定</span>
+
+        </footer>
+            <div id="popover-base-info" class="popover -popover-base-info">
+                <i class="arrow"></i>
+                <div class="hd">
+                    <h3 class="-data-title"></h3>
+                </div>
+                <div class="bd">
+                    <p class="-data-visitTime"></p>
+                    <p class="-data-url"></p>
+                </div>
+            </div>
+             <div class="popover -popover-extension-info">
+                <div class="image-wrapper -image-wrappprt">
+                    <img src="" alt="" />
+                </div>
+                <div class="content-wrapper -content-wrapper">
+                    <a href=""></a>
+                    <strong></strong>
+                </div>
+             </div>
+    </body>
+    <script src="assets/turn.js"></script>
+    <script src="customTurn.js"></script>
+</html>

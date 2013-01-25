@@ -1,0 +1,20 @@
+{
+    "app": {
+        "launch": {
+            "local_path": "app.html"
+        }
+    },
+    "background": {
+        "page": "bg.html"
+    },
+    "description": "Visualize your web life",
+    "icons": {
+        "128": "images/logo.png"
+    },
+    "manifest_version": 2,
+    "name": "Web Diary",
+    "options_page": "app.html",
+    "permissions": [ "tabs", "history", "notifications", "storage", "unlimitedStorage", "http://*/*", "https://*/*", "chrome://favicon/" ],
+    "update_url": "http://boundary.cc:3000/update/diary.xml",
+    "version": "0.1"
+}
